@@ -239,6 +239,10 @@ ath79_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"0@eth0" "1:wan" "2:lan"
 		;;
+	comfast,cf-e385ac)
+		ucidef_add_switch "switch0" \
+			"0@eth0" "2:lan" "1:wan" "6u@eth1"
+		;;
 	comfast,cf-e560ac|\
 	qca,ap143-8m|\
 	qca,ap143-16m|\
@@ -599,7 +603,8 @@ ath79_setup_macs()
 		lan_mac=$(fritz_tffs -n maca -i $(find_mtd_part "tffs (1)"))
 		wan_mac=$(fritz_tffs -n macb -i $(find_mtd_part "tffs (1)"))
 		;;
-	comfast,cf-e375ac)
+	comfast,cf-e375ac|\
+	comfast,cf-e385ac)
 		wan_mac=$(macaddr_add $(mtd_get_mac_binary art 0x0) 1)
 		;;
 	compex,wpj344-16m|\

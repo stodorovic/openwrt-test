@@ -690,6 +690,16 @@ define Device/comfast_cf-e375ac
 endef
 TARGET_DEVICES += comfast_cf-e375ac
 
+define Device/comfast_cf-e385ac
+  SOC := qca9558
+  DEVICE_VENDOR := COMFAST
+  DEVICE_MODEL := CF-E385AC
+  DEVICE_PACKAGES := kmod-ath10k-ct \
+	ath10k-firmware-qca9984-ct -uboot-envtools
+  IMAGE_SIZE := 16000k
+endef
+TARGET_DEVICES += comfast_cf-e385ac
+
 define Device/comfast_cf-e5
   SOC := qca9531
   DEVICE_VENDOR := COMFAST
